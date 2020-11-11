@@ -25,6 +25,6 @@ RUN sudo dpkg --add-architecture armhf \
     && sudo update-alternatives --install /usr/bin/arm-linux-gnueabihf-gcc arm-linux-gnueabihf-gcc /usr/bin/arm-linux-gnueabihf-gcc-6 100 \
     && sudo update-alternatives --install /usr/bin/arm-linux-gnueabihf-cc arm-linux-gnueabihf-cc /usr/bin/arm-linux-gnueabihf-gcc-6 100 \
     && sudo rm -rf /var/lib/apt/lists/* \
-    && pip install -q --no-cache-dir conan conan-package-tools --upgrade \
+    && pip install -q --no-cache-dir --use-feature=2020-resolver conan conan-package-tools --upgrade \
     && conan profile new default --detect \
     && conan profile update settings.arch=armv7hf default

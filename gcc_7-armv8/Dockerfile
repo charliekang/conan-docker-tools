@@ -26,6 +26,6 @@ RUN sudo dpkg --add-architecture arm64 \
     && sudo update-alternatives --install /usr/bin/aarch64-linux-gnu-gcov-dump aarch64-linux-gnu-gcov-dump /usr/bin/aarch64-linux-gnu-gcov-dump-7 100 \
     && sudo update-alternatives --install /usr/bin/aarch64-linux-gnu-gcov-tool aarch64-linux-gnu-gcov-tool /usr/bin/aarch64-linux-gnu-gcov-tool-7 100 \
     && sudo rm -rf /var/lib/apt/lists/* \
-    && pip install -q --no-cache-dir conan conan-package-tools --upgrade \
+    && pip install -q --no-cache-dir --use-feature=2020-resolver conan conan-package-tools --upgrade \
     && conan profile new default --detect \
     && conan profile update settings.arch=armv8 default

@@ -70,7 +70,7 @@ RUN dpkg --add-architecture i386 \
     && PYTHON_CONFIGURE_OPTS="--enable-shared" pyenv install 3.7.5 \
     && pyenv global 3.7.5 \
     && pip install -q --upgrade --no-cache-dir pip \
-    && pip install -q --no-cache-dir conan conan-package-tools \
+    && pip install -q --no-cache-dir --use-feature=2020-resolver conan conan-package-tools \
     && chown -R conan:1001 /opt/pyenv \
     # remove all __pycache__ directories created by pyenv
     && find /opt/pyenv -iname __pycache__ -print0 | xargs -0 rm -rf \

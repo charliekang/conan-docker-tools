@@ -73,7 +73,7 @@ RUN yum update -y \
     && bash /tmp/cmake-3.16.4-Linux-x86_64.sh --prefix=/usr/local --exclude-subdir \
     && rm /tmp/cmake-3.16.4-Linux-x86_64.sh \
     && pip install -q --upgrade --no-cache-dir pip \
-    && pip install -q --no-cache-dir conan conan-package-tools \
+    && pip install -q --no-cache-dir --use-feature=2020-resolver conan conan-package-tools \
     && sed -i 's/# %wheel/%wheel/g' /etc/sudoers \
     && groupadd 1001 -g 1001 \
     && useradd -ms /bin/bash conan -g 1001 -G wheel \
